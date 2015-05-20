@@ -1,0 +1,415 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+    
+    <TextView
+        android:id="@+id/textView_on_period_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/on_period" />
+    
+	<!-- nakagawa -->
+    <TextView
+        android:id="@+id/textView_count_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText_count"
+        android:layout_alignParentTop="true"
+        android:textColor="#ff00ff00"
+        android:text="@string/count" />
+
+    <TextView
+        android:id="@+id/textView_start_time_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText_start_time"
+        android:layout_alignParentTop="true"
+        android:textColor="#ff00ff00"
+        android:text="@string/start_time" />
+    
+    <TextView
+        android:id="@+id/textView_stop_time_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText_stop_time"
+        android:layout_alignParentTop="true"
+        android:textColor="#ff00ff00"
+        android:text="@string/stop_time" />
+    
+    <EditText
+        android:id="@+id/editText_on_period"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView_on_period_title"
+        android:ems="6"
+        android:inputType="number" />
+
+	<!-- nakagawa -->
+    <EditText
+        android:id="@+id/editText_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_count_title"
+        android:layout_toLeftOf="@+id/editText_start_time"
+        android:clickable="false"
+        android:ems="8"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:textColor="#ff00ff00"
+        android:inputType="none" />
+
+    <EditText
+        android:id="@+id/editText_start_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_start_time_title"
+        android:layout_toLeftOf="@+id/editText_stop_time"
+        android:clickable="false"
+        android:ems="12"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:textColor="#ff00ff00"
+        android:inputType="none" />
+
+    <EditText
+        android:id="@+id/editText_stop_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView_stop_time_title"
+        android:clickable="false"
+        android:ems="12"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:textColor="#ff00ff00"
+        android:inputType="none" />
+    
+<!-- nakagawa
+    <TextView
+        android:id="@+id/textView_count_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText_start_time"
+        android:layout_below="@+id/editText_start_time"
+        android:text="@string/count" />
+    
+    <EditText
+        android:id="@+id/editText_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView_count_title"
+        android:layout_below="@+id/textView_count_title"
+        android:clickable="false"
+        android:ems="12"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:inputType="none" />
+
+    <Button
+        android:id="@+id/button_delete_log_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editText_count"
+        android:text="@string/delete_log_file" />
+    <Button
+        android:id="@+id/button_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/button_delete_log_file"
+        android:text="@string/start" />
+ -->
+	<!-- nakagawa -->
+    <Button
+        android:id="@+id/button_start"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editText_count"
+        android:text="@string/start" />
+    <Button
+        android:id="@+id/button_start_back"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/editText_count"
+        android:text="@string/start_back" />
+    <Button
+        android:id="@+id/button_start_front"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/editText_count"
+        android:text="@string/start_front" />
+    
+    <Button
+        android:id="@+id/button_stop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/button_start"
+        android:text="@string/stop" />
+    
+    <TextView
+        android:id="@+id/textView_after_boot_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_stop"
+        android:layout_toRightOf="@+id/textView_stop_time_title"
+        android:text="@string/after_boot" />
+
+    <TextView
+        android:id="@+id/textView_before_reboot_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/button_stop"
+        android:text="@string/before_reboot" />
+    
+    <TextView
+        android:id="@+id/textView_free_memory_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView_after_boot_title"
+        android:text="@string/free_memory" />
+    
+    <CheckBox
+        android:id="@+id/checkBox_free_memory_after_boot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView_free_memory_title"
+        android:layout_alignBottom="@+id/textView_free_memory_title"
+        android:layout_alignLeft="@+id/textView_after_boot_title" />
+
+    <CheckBox
+        android:id="@+id/checkBox_free_memory_before_reboot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/checkBox_free_memory_after_boot"
+        android:layout_alignBottom="@+id/checkBox_free_memory_after_boot"
+        android:layout_alignLeft="@+id/textView_before_reboot_title" />
+    
+    <TextView
+        android:id="@+id/textView_wwan_signal_strength_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/checkBox_free_memory_after_boot"
+        android:layout_marginTop="21dp"
+        android:text="@string/wwan_signal_strength" />
+
+    <CheckBox
+        android:id="@+id/checkBox_wwan_signal_strength_after_boot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView_wwan_signal_strength_title"
+        android:layout_alignBottom="@+id/textView_wwan_signal_strength_title"
+        android:layout_alignLeft="@+id/checkBox_free_memory_after_boot" />
+
+    <CheckBox
+        android:id="@+id/checkBox_wwan_signal_strength_before_reboot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/checkBox_wwan_signal_strength_after_boot"
+        android:layout_alignBottom="@+id/checkBox_wwan_signal_strength_after_boot"
+        android:layout_alignLeft="@+id/checkBox_free_memory_before_reboot" />
+    
+    <TextView
+        android:id="@+id/textView_wifi_signal_strength_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/checkBox_wwan_signal_strength_after_boot"
+        android:layout_marginTop="21dp"
+        android:text="@string/wifi_signal_strength" />
+
+    <CheckBox
+        android:id="@+id/checkBox_wifi_signal_strength_after_boot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView_wifi_signal_strength_title"
+        android:layout_alignBottom="@+id/textView_wifi_signal_strength_title"
+        android:layout_alignLeft="@+id/checkBox_wwan_signal_strength_after_boot" />
+
+    <CheckBox
+        android:id="@+id/checkBox_wifi_signal_strength_before_reboot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/checkBox_wifi_signal_strength_after_boot"
+        android:layout_alignBottom="@+id/checkBox_wifi_signal_strength_after_boot"
+        android:layout_alignLeft="@+id/checkBox_wwan_signal_strength_before_reboot" />
+    
+    <TextView
+        android:id="@+id/textView_ping_ip_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/checkBox_wifi_signal_strength_after_boot"
+        android:layout_marginTop="21dp"
+        android:text="@string/ping_ip" />
+
+    <EditText
+        android:id="@+id/editText_ping_ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView_ping_ip_title"
+        android:layout_alignBottom="@+id/textView_ping_ip_title"
+        android:layout_toRightOf="@+id/textView_ping_ip_title"
+        android:ems="15"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/textView_ping_timeout_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editText_ping_ip"
+        android:layout_alignBottom="@+id/editText_ping_ip"
+        android:layout_toRightOf="@+id/editText_ping_ip"
+        android:text="@string/timeout" />
+
+    <EditText
+        android:id="@+id/editText_ping_timeout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView_ping_timeout_title"
+        android:layout_alignBottom="@+id/textView_ping_timeout_title"
+        android:layout_toRightOf="@+id/textView_ping_timeout_title"
+        android:ems="6"
+        android:inputType="number" />
+
+    <CheckBox
+        android:id="@+id/checkBox_ping_after_boot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editText_ping_timeout"
+        android:layout_alignBottom="@+id/editText_ping_timeout"
+        android:layout_alignLeft="@+id/checkBox_wifi_signal_strength_after_boot" />
+
+    <CheckBox
+        android:id="@+id/checkBox_ping_before_reboot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/checkBox_ping_after_boot"
+        android:layout_alignBottom="@+id/checkBox_ping_after_boot"
+        android:layout_alignLeft="@+id/checkBox_wifi_signal_strength_before_reboot" />
+    
+    <TextView
+        android:id="@+id/textView_bluetooth_device_timeout_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editText_ping_ip"
+        android:layout_marginTop="21dp"
+        android:text="@string/bluetooth_device_timeout" />
+
+    <EditText
+        android:id="@+id/editText_bluetooth_device_timeout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView_bluetooth_device_timeout_title"
+        android:layout_alignBottom="@+id/textView_bluetooth_device_timeout_title"
+        android:layout_toRightOf="@+id/textView_bluetooth_device_timeout_title"
+        android:ems="6"
+        android:inputType="number" />
+
+    <CheckBox
+        android:id="@+id/checkBox_bluetooth_device_after_boot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editText_bluetooth_device_timeout"
+        android:layout_alignBottom="@+id/editText_bluetooth_device_timeout"
+        android:layout_alignLeft="@+id/checkBox_ping_after_boot" />
+
+    <CheckBox
+        android:id="@+id/checkBox_bluetooth_device_before_reboot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/checkBox_bluetooth_device_after_boot"
+        android:layout_alignBottom="@+id/checkBox_bluetooth_device_after_boot"
+        android:layout_alignLeft="@+id/checkBox_ping_before_reboot" />
+    
+	<!-- nakagawa -->
+    <Button
+        android:id="@+id/button_delete_log_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editText_bluetooth_device_timeout"
+        android:text="@string/delete_log_file" />
+
+    <TextView
+        android:id="@+id/textView_output_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/button_delete_log_file"
+        android:layout_marginTop="21dp"
+        android:text="@string/output" />
+<!-- nakagawa
+    <TextView
+        android:id="@+id/textView_output_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editText_bluetooth_device_timeout"
+        android:layout_marginTop="21dp"
+        android:text="@string/output" />
+    
+<FrameLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView_output_title"
+    >
+    <ScrollView
+        android:id="@+id/scrollView_output"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView_output_title"
+        android:background="#404040"
+        android:fillViewport="true" >
+
+        <TextView
+            android:id="@+id/textView_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
+        <SurfaceView
+    	    android:id="@+id/surfaceview"
+    	    android:layout_width="match_parent"
+    	    android:layout_height="match_parent"
+    	    />
+</FrameLayout>
+ -->
+    <ScrollView
+        android:id="@+id/scrollView_output"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView_output_title"
+        android:background="#404040"
+        android:fillViewport="true" >
+
+        <TextView
+            android:id="@+id/textView_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
+<!--
+    <SurfaceView
+	    android:id="@+id/surfaceview"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/scrollView_output"
+	    />
+  -->
+</RelativeLayout>
