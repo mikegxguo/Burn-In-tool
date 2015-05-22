@@ -78,7 +78,7 @@ public class BISTApplication extends Application {
 
     // IDs
     public static final int[] IDS = {
-            INANDTest_ID, SDTest_ID, BTTest_ID, NFCTest_ID, BCRTest_ID,
+            INANDTest_ID, SDTest_ID, BTTest_ID, NFCTest_ID, BCRTest_ID, CellularTest_ID,
             SuspendTest_ID, TemperatureTest_ID, VibratorTest_ID, BKLTest_ID,
             SensorTest_ID, WIFITest_ID, PingTest_ID, IMEITest_ID, FlashTest_ID,
             BatteryTest_ID, VideoTest_ID, RebootTest_ID, USBTest_ID,
