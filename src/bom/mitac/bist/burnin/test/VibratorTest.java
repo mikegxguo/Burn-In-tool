@@ -19,7 +19,7 @@ import java.io.File;
  */
 public class VibratorTest extends TestClassLongTime {
     private Vibrator vibrator;
-    private long[] time = {2000, 2000};
+    private long[] time = {500, 500, 500, 500, 500, 500, 500, 500};
 
     public VibratorTest(Messenger messenger, Activity activity) {
         super(messenger, activity);
