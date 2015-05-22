@@ -221,9 +221,10 @@ public class TestFactory {
                         cycles = Integer.valueOf(configs.get(++index));
                         String site = configs.get(++index);
                         String ssid1 = configs.get(++index);
-                        String ssid2 = configs.get(++index);
-                        String ssid3 = configs.get(++index);
-                        test = new PingTest(messenger, activity, cycles, site, ssid1, ssid2, ssid3);
+                        String password = configs.get(++index);
+                        //String ssid3 = configs.get(++index);
+                        //test = new PingTest(messenger, activity, cycles, site, ssid1, ssid2, ssid3);
+                        test = new PingTest(messenger, activity, cycles, site, ssid1, password);
                     } else if (thirdPara.toLowerCase().equals("ftp")) {
 
 

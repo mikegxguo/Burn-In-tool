@@ -37,6 +37,7 @@ public class PingTest extends TestClass {
     private int ping_result_len;
     private int index;
     private String key_str;
+    private String password;
 
     public PingTest(Messenger messenger, Activity activity, int cycles, String site, String SSID1, String SSID2, String SSID3) {
         super(messenger, activity, cycles);
@@ -51,7 +52,18 @@ public class PingTest extends TestClass {
 
         this.site = site;
     }
-
+    
+    public PingTest(Messenger messenger, Activity activity, int cycles, String site, String SSID1, String password) {
+        super(messenger, activity, cycles);
+        this.id = BISTApplication.WIFITest_ID;
+        
+        this.SSIDs = new ArrayList<String>(3);
+        SSIDs.add(SSID1);
+        
+        this.password = password;
+        this.site = site;
+    }
+    
     public static boolean changeWifiStatus(Activity activity, boolean connect) {
         WifiManager wifiManager = (WifiManager) activity.getSystemService(Activity.WIFI_SERVICE);
         if (wifiManager == null)
@@ -135,23 +147,27 @@ public class PingTest extends TestClass {
         Collections.shuffle(SSIDs);
 
         while (!isStopped) {
-            if (connect(SSIDs.get(0)))
+            if (connect(SSIDs.get(0), password))
                 return true;
 
-            if (connect(SSIDs.get(1)))
+            if (connect(SSIDs.get(0), password))
                 return true;
 
-            if (connect(SSIDs.get(2)))
+            if (connect(SSIDs.get(0), password))
                 return true;
         }
         return false;
     }
 
-    private boolean connect(String SSID) {
+    private boolean connect(String SSID, String password) {
         if (!isWifiEnabled(activity))
             return false;
         sendMessage("Connecting AP: " + SSID, true);
-        wifi.Connect(SSID, null, WifiCipherType.WIFICIPHER_NOPASS);
+        if(!password.equals("null")) {
+            wifi.Connect(SSID, password, WifiCipherType.WIFICIPHER_WPA);
+        } else {
+            wifi.Connect(SSID, null, WifiCipherType.WIFICIPHER_NOPASS);
+        }
         for (int i = 0; i < 10; i++) {
             SystemClock.sleep(1000);
             if (isStopped) {

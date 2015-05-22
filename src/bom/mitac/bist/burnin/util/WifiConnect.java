@@ -91,14 +91,14 @@ public class WifiConnect {
         }else if (Type == WifiCipherType.WIFICIPHER_WPA) {
         	config.preSharedKey = "\"" + Password + "\"";
             config.hiddenSSID = true;
-            config.allowedAuthAlgorithms
-                    .set(WifiConfiguration.AuthAlgorithm.OPEN);
-            config.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.TKIP);
+            //config.allowedAuthAlgorithms
+            //        .set(WifiConfiguration.AuthAlgorithm.OPEN);
+            //config.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.TKIP);
             config.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.WPA_PSK);
-            config.allowedPairwiseCiphers
-                    .set(WifiConfiguration.PairwiseCipher.TKIP);
-            config.allowedProtocols.set(WifiConfiguration.Protocol.WPA);
-            config.status = WifiConfiguration.Status.ENABLED;
+            //config.allowedPairwiseCiphers
+            //        .set(WifiConfiguration.PairwiseCipher.TKIP);
+            //config.allowedProtocols.set(WifiConfiguration.Protocol.WPA);
+            //config.status = WifiConfiguration.Status.ENABLED;
         } else {
             return null;
         }
