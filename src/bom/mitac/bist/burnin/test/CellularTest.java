@@ -242,7 +242,7 @@ public class CellularTest extends TestClass {
         File localFile = new File(BISTApplication.BASE_PATH, "FTPUpload");
         try {
             log("Creating");
-            FileManager.create(localFile, 1024);
+            FileManager.create(localFile, 1);
         } catch (Exception e) {
             e.printStackTrace();
         }
