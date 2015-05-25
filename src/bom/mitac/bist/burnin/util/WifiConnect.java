@@ -45,12 +45,14 @@ public class WifiConnect {
 
         WifiConfiguration tempConfig = this.IsExsits(SSID);
  
+        boolean bRet = false;
         if (tempConfig != null) {
-            wifiManager.removeNetwork(tempConfig.networkId);
+            //wifiManager.removeNetwork(tempConfig.networkId);
+            bRet = wifiManager.reconnect();
         }
  
-        int netID = wifiManager.addNetwork(wifiConfig);
-        boolean bRet = wifiManager.enableNetwork(netID, true);
+        //int netID = wifiManager.addNetwork(wifiConfig);
+        //boolean bRet = wifiManager.enableNetwork(netID, true);
         return bRet;
     }
 
