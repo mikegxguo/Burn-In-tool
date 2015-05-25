@@ -65,6 +65,7 @@ import android.hardware.Camera;
 //+frank
 import android.provider.Settings;
 import android.content.ContentResolver;
+import bom.mitac.bist.burnin.util.Rebooter;
 
 //-frank
 
@@ -480,8 +481,8 @@ public class AgingActivity extends Activity /* implements SurfaceHolder.Callback
 			// Joshua add for auto run
 			mStop = false;
 			mErrorDialogShowed = false;
-			mCameraId = 2; //with front camera
-//			mCameraId = 0; //without camera
+//			mCameraId = 2; //with front camera
+			mCameraId = 0; //without camera
 
 			if (CheckInputItem()) {
 				m_FirstFlag = true;
@@ -621,7 +622,8 @@ public class AgingActivity extends Activity /* implements SurfaceHolder.Callback
 	// +frank # 04.25
 	private void rebootDevice() {
 		Log.d(TAG, "rebootDevice is called");
-		((PowerManager) getSystemService(POWER_SERVICE)).reboot(null);
+		//((PowerManager) getSystemService(POWER_SERVICE)).reboot(null);
+		Rebooter.reboot(this);
 	}
 
 	// -frank # 04.25
