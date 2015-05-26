@@ -48,6 +48,7 @@ public class CellularTest extends TestClass {
     }
 
     public static void setCellularEnable(Activity activity, boolean enabled) {
+        /*
         ConnectivityManager conMgr = (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
         Class<?> conMgrClass = null; // ConnectivityManager绫�
         Field iConMgrField = null; // ConnectivityManager绫讳腑鐨勫瓧娈�
@@ -86,6 +87,7 @@ public class CellularTest extends TestClass {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
+        */
     }
 
     public static boolean isCellularConnected(Activity activity) {
@@ -99,8 +101,8 @@ public class CellularTest extends TestClass {
     }
 
     private boolean tryTurnCellularOn() {
-        log("tryTurnWifiOn");
-        log("changeWifiStatus " + true);
+        log("tryTurnCellularOn");
+        log("setCellularEnable " + true);
         setCellularEnable(activity, true);
         for (int i = 0; i < 10; i++) {
             if (isStopped) {
@@ -111,10 +113,10 @@ public class CellularTest extends TestClass {
 
             if (i == 9) {
                 // The Cellular is not enabled after 10 cycle. Change the status and re-check.
-                log("changeWifiStatus " + false);
+                log("setCellularEnable " + false);
                 setCellularEnable(activity, false);
                 SystemClock.sleep(3000);
-                log("changeWifiStatus " + true);
+                log("setCellularEnable " + true);
                 setCellularEnable(activity, true);
                 i = -1;
             } else {
@@ -125,7 +127,7 @@ public class CellularTest extends TestClass {
     }
 
     private boolean tryConnectCellularNet() {
-        log("tryConnectWifiAP");
+        log("tryConnectCellularNet");
         tryTurnCellularOn();
         for (int i = 0; i < 10; i++) {
             if (isStopped) {
