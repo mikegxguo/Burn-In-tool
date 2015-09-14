@@ -157,6 +157,7 @@ public class TestFactory {
             int startTime = Integer.valueOf(firstPara);
             int endTime = -1;
             int cycles = -1;
+            int battLevel = 0;
             boolean isContinuous = false;
             StandardTestMethod test = null;
             if (!secondPara.equals("na")) {
@@ -328,7 +329,8 @@ public class TestFactory {
                     test = new SensorTest(messenger, activity);
                     break;
                 case BATTERY:
-                    test = new BatteryTest(messenger, activity);
+                    battLevel = Integer.valueOf(configs.get(++index));
+                    test = new BatteryTest(messenger, activity, battLevel);
                     break;
                 case SUSPEND:
                     // Keep this case to be the last one
