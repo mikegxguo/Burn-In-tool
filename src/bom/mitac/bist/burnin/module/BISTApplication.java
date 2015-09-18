@@ -46,6 +46,8 @@ public class BISTApplication extends Application {
             + File.separator + "BIST";
     public static final String LOG_NAME = "BurnIn.txt";
     public static final String TOTAL_LOG_NAME = "Total.txt";
+    //The global variable remembers the status of suspend test
+    public static boolean g_bEndSuspendTest = true;
 
     // ID
     public static final int COMMAND = -8000;

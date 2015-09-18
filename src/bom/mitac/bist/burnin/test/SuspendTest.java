@@ -168,6 +168,7 @@ public class SuspendTest extends TestClassLongTime {
 
     @Override
     public boolean testEnd() {
+        BISTApplication.g_bEndSuspendTest = false;
         for (int i = 0; i < 10; i++) {
             if (isResumed) {
                 break;
@@ -188,6 +189,7 @@ public class SuspendTest extends TestClassLongTime {
         } else {
             isPassed = true;
         }
+        BISTApplication.g_bEndSuspendTest = true;
         return true;
     }
 }

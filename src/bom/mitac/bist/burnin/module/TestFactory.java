@@ -43,8 +43,8 @@ public class TestFactory {
     //    private static int baseResetTic;
 //    private static int tic = -1;
     private int cycleTime;
-    //    private int totalCycles;
-    private int totalTime;
+    private int totalCycles;
+    //private int totalTime;
     public static int rebootTime; //get run reboot test time in minutes
    
     private static final int MAX_KEYS = 30;
@@ -113,7 +113,7 @@ public class TestFactory {
         }
         testTitle = configs.get(0);
         cycleTime = Integer.valueOf(configs.get(2));
-        totalTime = Integer.valueOf(configs.get(3));
+        totalCycles = Integer.valueOf(configs.get(3));
         rebootTime = Integer.valueOf(configs.get(4));
         return testTitle;
     }
@@ -162,8 +162,8 @@ public class TestFactory {
             StandardTestMethod test = null;
             if (!secondPara.equals("na")) {
                 endTime = Integer.valueOf(secondPara);
-                // The timer is from 0 to 'totalTime-1', so the tic will never go to 'totalTime'
-                if (endTime == totalTime) {
+                // The timer is from 0 to 'cycleTime-1', so the tic will never go to 'cycleTime'
+                if (endTime == cycleTime) {
                     endTime--;
                 }
             }
@@ -489,6 +489,10 @@ public class TestFactory {
 
         @Override
         public void run() {
+            if(!BISTApplication.g_bEndSuspendTest) {
+                Log.d("feong", "Suspend test is going to exit\n");
+                return;
+            }
             tic++;
 
             if (end) {
@@ -517,6 +521,11 @@ public class TestFactory {
 
 
                 cycle++;
+                if (cycle>totalCycles) {
+                    stopTest();
+                    sendMessage(BISTApplication.COMMAND, "TEST END");
+                    return;
+                }
                 sendMessage(BISTApplication.TIME_CYCLE, "Cycle: " + cycle);
                 recorder.cycle = cycle;
                 recorder.write();
@@ -551,9 +560,9 @@ public class TestFactory {
             long hour = interval % (24 * 3600) / 3600;
             long minute = interval % 3600 / 60;
             long second = interval % 60;
-            if (interval / 60 >= totalTime) {
-                end = true;
-            }
+//            if (interval / 60 >= totalTime) {
+//                end = true;
+//            }
             if (day > 0) {
                 return day + "D" + hour + "H" + minute + "M" + second + "S";
             } else if (hour > 0) {
