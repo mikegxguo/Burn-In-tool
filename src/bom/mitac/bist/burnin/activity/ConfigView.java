@@ -215,7 +215,7 @@ public class ConfigView extends LinearLayout implements Button.OnClickListener {
 				if (filter.Flash && findCase(BISTApplication.FlashTest_ID)) {
 
 				}
-				if (filter.Vibrator && findCase(BISTApplication.VideoTest_ID)) {
+				if (filter.Video && findCase(BISTApplication.VideoTest_ID)) {
 
 				}
 				if (filter.BT && findCase(BISTApplication.BTTest_ID)) {
