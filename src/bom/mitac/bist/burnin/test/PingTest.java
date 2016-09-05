@@ -2,6 +2,7 @@ package bom.mitac.bist.burnin.test;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
@@ -26,7 +27,7 @@ import bom.mitac.bist.burnin.util.CommandManager;
 import bom.mitac.bist.burnin.util.WifiConnect;
 import bom.mitac.bist.burnin.util.WifiConnect.WifiCipherType;
 
-import org.apache.http.conn.util.InetAddressUtils;
+//import org.apache.http.conn.util.InetAddressUtils;//Removed from Android API-23
 
 public class PingTest extends TestClass {
     private WifiManager wifiManager;
@@ -98,7 +99,9 @@ public class PingTest extends TestClass {
             for (NetworkInterface net : netList) {
                 List<InetAddress> addressList = Collections.list(net.getInetAddresses());
                 for (InetAddress address : addressList) {
-                    if (!address.isLoopbackAddress() && InetAddressUtils.isIPv4Address(ipv4 = address.getHostAddress())) {
+                    //if (!address.isLoopbackAddress() && InetAddressUtils.isIPv4Address(ipv4 = address.getHostAddress())) {
+                    if (!address.isLoopbackAddress() && (address instanceof Inet4Address)) { //Android 6.0, API-23
+                        ipv4 = address.getHostAddress();
                         return ipv4;
                     }
                 }
