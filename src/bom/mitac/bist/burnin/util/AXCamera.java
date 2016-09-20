@@ -73,6 +73,7 @@ public class AXCamera {
     }
 
     private boolean openCamera(int facing) {
+        boolean openOK = true;
         if (camera == null) {
             try {
                 camera = Camera.open(facing);
@@ -94,8 +95,9 @@ public class AXCamera {
                 if (camera != null)
                     camera.release();
                 camera = null;
+                openOK = false;
             }
-            return true;
+            return openOK;
         } else {
             return false;
         }
