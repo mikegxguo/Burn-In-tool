@@ -22,11 +22,15 @@ public class RebootAgingCmn {
 		int				Ret = -1 ;
 		boolean			LoopFlag = true ;
 
+		File file = new File(FileName);
+		if(!file.exists()) {
+		    return Ret;
+		}
 
 		try {
 			WorkBufferedReader = new BufferedReader( new FileReader( FileName ) ) ;
 		} catch (FileNotFoundException e) {
-			// TODO 閾ｪ�?慕函謌舌＆繧後◆ catch �?悶Ο�?��?�?
+			// TODO 閾ｪ�?慕函謌舌＆繧後◆ catch �?悶Ο�?��?�?
 			e.printStackTrace();
 			Ret = -2 ;
 		}
@@ -38,7 +42,7 @@ public class RebootAgingCmn {
 			try {
 				WorkXmlPullParser.setInput( WorkBufferedReader ) ;
 			} catch (XmlPullParserException e) {
-				// TODO 閾ｪ�?慕函謌舌＆繧後◆ catch �?悶Ο�?��?�?
+				// TODO 閾ｪ�?慕函謌舌＆繧後◆ catch �?悶Ο�?��?�?
 				e.printStackTrace();
 				LoopFlag = false ;
 			}
@@ -84,15 +88,15 @@ public class RebootAgingCmn {
 							break ;
 					}
 				} catch (NumberFormatException e) {
-					// TODO 閾ｪ�?慕函謌舌＆繧後◆ catch �?悶Ο�?��?�?
+					// TODO 閾ｪ�?慕函謌舌＆繧後◆ catch �?悶Ο�?��?�?
 					e.printStackTrace();
 					LoopFlag = false ;
 				} catch (XmlPullParserException e) {
-					// TODO 閾ｪ�?慕函謌舌＆繧後◆ catch �?悶Ο�?��?�?
+					// TODO 閾ｪ�?慕函謌舌＆繧後◆ catch �?悶Ο�?��?�?
 					e.printStackTrace();
 					LoopFlag = false ;
 				} catch (IOException e) {
-					// TODO 閾ｪ�?慕函謌舌＆繧後◆ catch �?悶Ο�?��?�?
+					// TODO 閾ｪ�?慕函謌舌＆繧後◆ catch �?悶Ο�?��?�?
 					e.printStackTrace();
 					LoopFlag = false ;
 				}
@@ -101,7 +105,7 @@ public class RebootAgingCmn {
 			try {
 				WorkBufferedReader.close() ;
 			} catch (IOException e) {
-				// TODO 閾ｪ�?慕函謌舌＆繧後◆ catch �?悶Ο�?��?�?
+				// TODO 閾ｪ�?慕函謌舌＆繧後◆ catch �?悶Ο�?��?�?
 				e.printStackTrace();
 			}
 		}
@@ -119,7 +123,7 @@ public class RebootAgingCmn {
 		try {
 			WorkBufferedWriter = new BufferedWriter( new FileWriter( FileName ) ) ;
 		} catch (IOException e) {
-			// TODO 閾ｪ�?慕函謌舌＆繧後◆ catch �?悶Ο�?��?�?
+			// TODO 閾ｪ�?慕函謌舌＆繧後◆ catch �?悶Ο�?��?�?
 			e.printStackTrace();
 			Ret = -2 ;
 		}
@@ -155,14 +159,14 @@ public class RebootAgingCmn {
 				WorkBufferedWriter.write( "</Info>\r\n" ) ;
 				Ret = 0 ;
 			} catch (IOException e) {
-				// TODO 閾ｪ�?慕函謌舌＆繧後◆ catch �?悶Ο�?��?�?
+				// TODO 閾ｪ�?慕函謌舌＆繧後◆ catch �?悶Ο�?��?�?
 				e.printStackTrace();
 			}
 
 			try {
 				WorkBufferedWriter.close() ;
 			} catch (IOException e) {
-				// TODO 閾ｪ�?慕函謌舌＆繧後◆ catch �?悶Ο�?��?�?
+				// TODO 閾ｪ�?慕函謌舌＆繧後◆ catch �?悶Ο�?��?�?
 				e.printStackTrace();
 			}
 		}
