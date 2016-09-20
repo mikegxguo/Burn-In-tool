@@ -126,7 +126,7 @@ public class BTTest extends TestClass {
 //        }
     }
 
-    private boolean closeDevice() {
+    private boolean disableBT() {
         if (btAdapter == null) {
             sendMessage("Close the bluetooth failed", true);
             return false;
@@ -188,12 +188,12 @@ public class BTTest extends TestClass {
 //        }
         if (enableBT()) {
 //            if (discoveryDevices()) {
-//                return closeDevice();
+//                return disableBT();
 //            } else {
-//                closeDevice();
+//                disableBT();
 //                return false;
 //            }
-            return closeDevice();
+            return disableBT();
         } else {
             return false;
         }
