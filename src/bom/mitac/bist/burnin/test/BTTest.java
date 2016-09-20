@@ -187,13 +187,13 @@ public class BTTest extends TestClass {
 //            return false;
 //        }
         if (enableBT()) {
-            if (discoveryDevices()) {
-                return closeDevice();
-            } else {
-                closeDevice();
-                return false;
-            }
-//            return discoveryDevices();
+//            if (discoveryDevices()) {
+//                return closeDevice();
+//            } else {
+//                closeDevice();
+//                return false;
+//            }
+            return closeDevice();
         } else {
             return false;
         }
