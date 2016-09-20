@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">BrunIn</string>
+    <string name="app_name">BurnIn</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="on_period">On Period (sec)</string>
@@ -16,7 +16,7 @@
     <string name="after_boot">After Boot</string>
     <string name="before_reboot">Before Reboot</string>
     <string name="free_memory">Free Memory</string>
-    <string name="wwan_signal_strength">Wwan Signal Strength</string>
+    <string name="wwan_signal_strength">WWAN Signal Strength</string>
     <string name="wifi_signal_strength">Wifi Signal Strength</string>
     <string name="ping_ip">"Ping to IP: "</string>
     <string name="timeout">"Timeout (sec): "</string>
