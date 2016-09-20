@@ -184,7 +184,7 @@ public class SuspendTest extends TestClassLongTime {
         if (stopTime == 0)
             stopTime = System.currentTimeMillis();
         long sleepTime = stopTime - startTime;
-        if (!isSuspended || !isResumed || sleepTime < (suspendTime - 5000) || sleepTime > (suspendTime + 5000)) {
+        if (!isSuspended || !isResumed || sleepTime < (suspendTime - 5000) || sleepTime > (suspendTime + 10000)) {
             isPassed = false;
         } else {
             isPassed = true;
