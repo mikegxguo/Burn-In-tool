@@ -64,12 +64,12 @@ public class AXCamera {
 
         try {
             camera.setPreviewDisplay(surfaceHolder);
-            return true;
         } catch (Exception e) {
             Log.d("feong", "setPreviewDisplay err");
             e.printStackTrace();
+            return false;
         }
-        return false;
+        return true;
     }
 
     private boolean openCamera(int facing) {
