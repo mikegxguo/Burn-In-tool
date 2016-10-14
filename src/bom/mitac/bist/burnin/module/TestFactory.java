@@ -350,8 +350,10 @@ public class TestFactory {
                 default:
                     return false;
             }
+            Log.d("feong", "Add to list(begin): "+test.toString()+" time stamp:"+startTime);
             beginList.add(startTime, test);
             if (endTime != -1) {
+                Log.d("feong", "Add to list(end): "+test.toString()+" time stamp:"+endTime);
                 endList.add(endTime, test);
             }
             // there are many case for Camera, gps, 3g, wifi test, so remove it after it has added.
@@ -468,6 +470,8 @@ public class TestFactory {
         private int tic = -1;
         private int cycle;
         private long startTime;
+        private long last_tic = 0;
+        private long new_tic = 0;
 //        private boolean end;
 
         {
@@ -493,6 +497,13 @@ public class TestFactory {
                 Log.d("feong", "Suspend test is going to exit\n");
                 return;
             }
+            new_tic = System.currentTimeMillis();
+            if(new_tic-last_tic<100){
+                Log.d("feong", "resume");
+                last_tic = new_tic;
+                return;
+            }
+            last_tic = new_tic;
             tic++;
 
             if (end) {
@@ -534,6 +545,7 @@ public class TestFactory {
             List<StandardTestMethod> list = endList.get(tic);
             if (list != null) {
                 for (int i = 0, size = list.size(); i < size; i++) {
+                    Log.d("feong", list.get(i).toString()+": stop at the time stamp("+tic+")");
                     stop(list.get(i));
                 }
 //                if (tic == 0 && cycle == 1) {
@@ -547,6 +559,7 @@ public class TestFactory {
             list = beginList.get(tic);
             if (list != null) {
                 for (int i = 0, size = list.size(); i < size; i++) {
+                    Log.d("feong", list.get(i).toString()+": start at the time stamp("+tic+")");
                     start(list.get(i));
                 }
             }
