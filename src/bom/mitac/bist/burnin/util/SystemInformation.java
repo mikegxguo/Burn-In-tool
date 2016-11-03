@@ -17,7 +17,8 @@ import java.util.regex.Pattern;
  */
 public class SystemInformation {
     public static int getSKUID() {
-        String[] CAT = {"cat", "/sys/sys_info/sku_id" };
+        //String[] CAT = {"cat", "/sys/sys_info/sku_id" };
+        String[] CAT = {"cat", "/sys/sys_info/sku_info/sku_id" }; //For HERA project
         String temp = CommandManager.run_command(CAT, "/system/bin").replaceAll("\\D", "");
         if(temp.equals("")){
         	temp = "0";
