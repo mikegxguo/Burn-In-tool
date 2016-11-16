@@ -13,7 +13,7 @@ import java.io.File;
  * Created with IntelliJ IDEA.
  * User: xiaofeng.liu
  * Date: 14-4-28
- * Time: 上午11:09
+ * Time: 11:09AM
  */
 @Root
 public class Recorder {

@@ -20,7 +20,7 @@ import java.util.Iterator;
  * Created with IntelliJ IDEA.
  * User: xiaofeng.liu
  * Date: 14-3-19
- * Time: 涓嬪�?:51
+ * Time: 
  */
 public class GPSTest extends TestClass {
     public enum TYPE {
@@ -81,9 +81,9 @@ public class GPSTest extends TestClass {
 
     public static final boolean isOPen(Context context) {
         LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
-        // 閫氳繃GPS鍗槦�?氫綅锛屽畾浣嶇骇鍒彲浠ョ簿纭埌琛楋紙閫氳�?4棰楀崼鏄熷畾浣嶏紝鍦ㄥ澶栧拰绌烘椃鐨勫湴鏂瑰畾浣嶅噯纭�閫熷害蹇級
+        // 
         boolean gps = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-        // 閫氳繃WLAN鎴栫Щ鍔ㄧ綉缁�?G/2G)纭畾鐨勪綅缃紙涔熺О浣淎GPS锛岃緟鍔〨PS瀹氫綅銆備富瑕佺敤浜庡湪瀹ゅ唴鎴栭伄鐩栫墿锛堝缓绛戠兢鎴栬寕瀵嗙殑娣辨灄绛夛級�?嗛泦鐨勫湴鏂瑰畾浣嶏�?
+        // 
         boolean network = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
         if (gps || network) {
             return true;

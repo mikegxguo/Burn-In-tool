@@ -35,8 +35,8 @@ public class MainActivity extends Activity {
 	private static ViewFlipper viewFlipper;
 	private ConfigView configView;
 	private TestView testView;
-
-	@Override
+    
+    @Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		saveLog("onCreate");

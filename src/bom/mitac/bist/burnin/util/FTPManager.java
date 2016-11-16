@@ -14,7 +14,7 @@ import java.util.TimerTask;
  * Created with IntelliJ IDEA.
  * User: xiaofeng.liu
  * Date: 14-1-11
- * Time: 涓嬪�?:44
+ * Time: 
  */
 public class FTPManager {
     public static enum Status {
@@ -105,9 +105,9 @@ public class FTPManager {
         long stopTime;
         File f = new File(local);
         long localSize = f.length();
-        //璁剧疆PassiveMode浼犺�?
+        //PassiveMode
         ftpClient.enterLocalPassiveMode();
-        //璁剧疆浠ヤ簩杩涘埗娴佺殑鏂瑰紡浼犺緭
+        //
         try {
 //            ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
             ftpClient.setFileType(FTP.ASCII_FILE_TYPE);
@@ -115,13 +115,13 @@ public class FTPManager {
             e.printStackTrace();
         }
 
-        //瀵硅繙绋嬬洰褰曠殑澶勭悊
+        //
         String remoteFileName = remote.substring(remote.lastIndexOf("/") + 1);
         String remoteDirectory = remote.substring(0, remote.lastIndexOf("/") + 1);
         if (remoteDirectory.startsWith("/")) {
             try {
                 if (!ftpClient.changeWorkingDirectory(remoteDirectory)) {
-                    //濡傛灉杩滅▼鐩綍涓嶅瓨鍦紝鍒欏垱寤鸿繙绋嬫湇鍔�?櫒鐩綍
+                    //
                     if (ftpClient.makeDirectory(remoteDirectory)) {
                         ftpClient.changeWorkingDirectory(remoteDirectory);
                     } else {
@@ -133,12 +133,12 @@ public class FTPManager {
                 e.printStackTrace();
             }
         } else {
-            Log.d("feong", "鍒涘缓鐩綍澶辫�?");
+            Log.d("feong", "CREATE_DIRECTORY_FAIL");
             status = Status.CREATE_DIRECTORY_FAIL;
             return false;
         }
 
-        // 涓婁紶鏂版枃浠�
+        // 
 
         boolean isUploaded = false;
         try {
@@ -177,22 +177,22 @@ public class FTPManager {
         long stopTime;
         File f = new File(local);
         long localSize = f.length();
-        //璁剧疆PassiveMode浼犺�?
+        //PassiveMode
         ftpClient.enterLocalPassiveMode();
-        //璁剧疆浠ヤ簩杩涘埗娴佺殑鏂瑰紡浼犺緭
+        //
         try {
             ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        //瀵硅繙绋嬬洰褰曠殑澶勭悊
+        //
         String remoteFileName = remote.substring(remote.lastIndexOf("/") + 1);
         String remoteDirectory = remote.substring(0, remote.lastIndexOf("/") + 1);
         if (remoteDirectory.startsWith("/")) {
             try {
                 if (!ftpClient.changeWorkingDirectory(remoteDirectory)) {
-                    //濡傛灉杩滅▼鐩綍涓嶅瓨鍦紝鍒欏垱寤鸿繙绋嬫湇鍔�?櫒鐩綍
+                    //
                     if (ftpClient.makeDirectory(remoteDirectory)) {
                         ftpClient.changeWorkingDirectory(remoteDirectory);
                     } else {
@@ -204,12 +204,12 @@ public class FTPManager {
                 e.printStackTrace();
             }
         } else {
-            Log.d("feong", "鍒涘缓鐩綍澶辫�?");
+            Log.d("feong", "CREATE_DIRECTORY_FAIL");
             status = Status.CREATE_DIRECTORY_FAIL;
             return false;
         }
 
-        //妫�煡杩滅▼鏄惁�?樺湪鏂囦�?
+        //
         FTPFile[] files = new FTPFile[0];
         try {
             files = ftpClient.listFiles(remoteFileName);
@@ -225,7 +225,7 @@ public class FTPManager {
                 status = Status.REMOTE_BIGGER_LOCAL;
                 return false;
             } else {
-                //灏濊瘯绉诲姩鏂囦欢鍐呰鍙栨寚閽��?炵幇鏂偣缁紶
+                //
                 boolean isUploaded = false;
                 try {
                     is = new FileInputStream(f);
@@ -260,7 +260,7 @@ public class FTPManager {
                 return isUploaded;
             }
         } else {
-            // 涓婁紶鏂版枃浠�
+            //
 
             boolean isUploaded = false;
             try {
@@ -322,7 +322,7 @@ public class FTPManager {
             return false;
         }
 
-        //瀵规湰鍦扮洰褰曠殑澶勭悊
+        //
         String localDirectory = local.substring(0, local.lastIndexOf("/"));
         if (localDirectory.startsWith("/")) {
             File folder = new File(localDirectory);
@@ -371,12 +371,12 @@ public class FTPManager {
     // TODO
 
     /**
-     * 浠嶧TP鏈嶅姟鍣ㄤ笂涓嬭浇鏂囦欢
+     * 
      *
-     * @param remote    杩滅▼鏂囦欢璺�?
-     * @param local     鏈湴鏂囦欢璺�?
-     * @param continues 鏂偣缁紶
-     * @return 鏄惁鎴愬姛
+     * @param remote
+     * @param local
+     * @param continues
+     * @return
      */
     public boolean download(String remote, String local, boolean continues) throws IOException {
         long startTime;
@@ -394,7 +394,7 @@ public class FTPManager {
         long remoteSize = files[0].getSize();
         if (f.exists() && continues) {
             if (localSize >= remoteSize) {
-                Log.d("feong", "鏈湴鏂囦欢澶у皬澶т簬杩滅▼鏂囦欢澶у皬锛屼笅杞戒腑姝�");
+                Log.d("feong", "FILE_LARGER_THAN_LOCAL\r\n");
                 status = Status.FILE_LARGER_THAN_LOCAL;
                 return false;
             } else {
@@ -409,7 +409,7 @@ public class FTPManager {
                     out.close();
                     return true;
                 } else {
-                    // 鏂偣缁紶澶辫触锛岄噸鏂颁笅杞�?//                    countPercent(f, remoteSize);
+                    //countPercent(f, remoteSize);
                     startTime = System.nanoTime();
                     if (ftpClient.retrieveFile(remote, out)) {
                         stopTime = System.nanoTime();

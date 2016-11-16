@@ -15,7 +15,7 @@ import java.io.File;
  * Created with IntelliJ IDEA.
  * User: xiaofeng.liu
  * Date: 14-3-12
- * Time: 下午6:37
+ * Time: 6:37PM
  */
 public class SDTest extends TestClass {
 

@@ -18,7 +18,7 @@ import java.util.List;
  * Created with IntelliJ IDEA.
  * User: xiaofeng.liu
  * Date: 14-5-7
- * Time: 下午5:21
+ * Time: 5:21PM
  */
 public class SKU {
     private static final File DEFAULT_FILE = new File(BISTApplication.BASE_PATH, "sku.xml");

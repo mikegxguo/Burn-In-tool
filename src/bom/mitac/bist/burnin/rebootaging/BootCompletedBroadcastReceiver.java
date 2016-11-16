@@ -8,7 +8,7 @@ public class BootCompletedBroadcastReceiver extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		// TODO 自動生�??�れ?�メソッド・スタ�?
+		// TODO
 		SETTING_XML_DATA	SettingXmlData = new SETTING_XML_DATA() ;
 
 

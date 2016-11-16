@@ -38,20 +38,20 @@
         android:id="@+id/btn_recheck"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:text="Recheck"/>
+        android:text="@string/Recheck"/>
 
     <Button
         android:id="@+id/btn_ok"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:text="OK"/>
+        android:text="@string/OK"/>
 
     <Button
         android:id="@+id/btn_scan"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:background="@android:color/holo_red_light"
-        android:text="Scan"/>
+        android:text="@string/Scan"/>
 
 </LinearLayout>
 

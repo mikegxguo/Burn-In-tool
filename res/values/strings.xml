@@ -22,5 +22,10 @@
     <string name="timeout">"Timeout (sec): "</string>
     <string name="bluetooth_device_timeout">"Bluetooth Device Timeout (sec): "</string>
     <string name="output">Output</string>
-
+    <string name="Recheck">Recheck</string>
+    <string name="OK">OK</string>
+    <string name="Scan">Scan</string>
+    <string name="TestInfo">Test Info</string>
+    <string name="Stop">Stop</string>
+    
 </resources>

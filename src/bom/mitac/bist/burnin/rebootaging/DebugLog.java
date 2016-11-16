@@ -48,7 +48,7 @@ public class DebugLog {
 		try {
 			WorkBufferedWriter = new BufferedWriter( new FileWriter( m_FileName, true ) ) ;
 		} catch (IOException e) {
-			// TODO 自動生�??�れ??catch ブロック
+			// TODO
 			e.printStackTrace();
 		}
 		if( WorkBufferedWriter != null )
@@ -56,13 +56,13 @@ public class DebugLog {
 			try {
 				WorkBufferedWriter.write( DebugString ) ;
 			} catch (IOException e) {
-				// TODO 自動生�??�れ??catch ブロック
+				// TODO 自動生�??�れ??catch ブロック
 				e.printStackTrace();
 			}
 			try {
 				WorkBufferedWriter.close() ;
 			} catch (IOException e) {
-				// TODO 自動生�??�れ??catch ブロック
+				// TODO 自動生�??�れ??catch ブロック
 				e.printStackTrace();
 			}
 		}
