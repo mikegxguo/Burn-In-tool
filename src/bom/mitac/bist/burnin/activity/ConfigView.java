@@ -177,6 +177,9 @@ public class ConfigView extends LinearLayout implements Button.OnClickListener {
 		SKU sku = SKU.read();
 		if (sku != null) {
 			SKU.Filter filter = sku.getFilter();
+			if(filter == null) {
+			    Log.e("feong",  "NO DEFINITION FOR CURRENT SKU in sku.xml\r\n");
+			}
 			if (filter != null) {
 				if (filter.Camera_back
 						&& findCase(BISTApplication.CameraTest_BACK_ID)) { // back
