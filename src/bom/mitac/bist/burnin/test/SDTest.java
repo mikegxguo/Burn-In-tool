@@ -2,7 +2,6 @@ package bom.mitac.bist.burnin.test;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Environment;
 import android.os.Messenger;
 import android.util.Log;
 import bom.mitac.bist.burnin.module.BISTApplication;

@@ -13,15 +13,20 @@ import java.util.regex.Pattern;
  * Created with IntelliJ IDEA.
  * User: xiaofeng.liu
  * Date: 14-5-7
- * Time: 下午5:45
+ * Time: 5:45PM
  */
 public class SystemInformation {
     public static int getSKUID() {
-        //String[] CAT = {"cat", "/sys/sys_info/sku_id" };
-        String[] CAT = {"cat", "/sys/sys_info/sku_info/sku_id" }; //For HERA project
+        String[] CAT = {"cat", "/sys/sys_info/sku_id" };
+        String[] CAT01 = {"cat", "/sys/sys_info/sku_info/sku_id" }; //For HERA project
         String temp = CommandManager.run_command(CAT, "/system/bin").replaceAll("\\D", "");
+        Log.d("feong", "/sys/sys_info/sku_id "+temp);
         if(temp.equals("")){
-        	temp = "0";
+            temp = CommandManager.run_command(CAT01, "/system/bin").replaceAll("\\D", "");
+            Log.d("feong", "/sys/sys_info/sku_info/sku_id "+temp);
+            if(temp.equals("")){
+                    temp = "0";
+            }
         }
         int skuid = Integer.valueOf(temp);
         return skuid;
