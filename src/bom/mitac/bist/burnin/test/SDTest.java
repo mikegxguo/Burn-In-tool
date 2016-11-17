@@ -48,6 +48,8 @@ public class SDTest extends TestClass {
 
     @Override
     public boolean classSetup() {
+        //TO DO: If the platform is Android 6.0, then we need the code below to run this case;
+        //TO DO: If the platform is Android 4.2, then we need another code;
         File[] fs = context.getExternalFilesDirs(null);
         String extPath = null;
         // Index 0: the internal storage, /sdcard/
@@ -56,9 +58,10 @@ public class SDTest extends TestClass {
             extPath = fs[1].getPath();
             Log.d("feong",extPath);
         }
-        
+
         EXT_SDCARD_PATH = extPath;
         this.folder = new File(EXT_SDCARD_PATH, "HEAVY_LOADING_TEST");
+//        this.folder = new File(BISTApplication.EXT_SDCARD_PATH, "HEAVY_LOADING_TEST");
         if (!folder.exists()) {
             folder.mkdirs();
         }
