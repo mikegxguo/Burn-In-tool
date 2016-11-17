@@ -1,7 +1,10 @@
 package bom.mitac.bist.burnin.test;
 
 import android.app.Activity;
+import android.content.Context;
+import android.os.Environment;
 import android.os.Messenger;
+import android.util.Log;
 import bom.mitac.bist.burnin.module.BISTApplication;
 import bom.mitac.bist.burnin.module.TestClass;
 import bom.mitac.bist.burnin.util.FileManager;
@@ -22,12 +25,15 @@ public class SDTest extends TestClass {
     private File folder;
 
     private boolean keepTheDiffer;
+    private Context context;
+    private String EXT_SDCARD_PATH;
 
     public SDTest(Messenger messenger, Activity activity, boolean isContinuous, boolean keepTheDiffer) {
         super(messenger, activity, isContinuous);
         this.id = BISTApplication.SDTest_ID;
 //        this.logFile = new File(BISTApplication.LOG_PATH, BISTApplication.ID_NAME.get(id) + ".txt");
 //        this.logFile = new File(BISTApplication.LOG_PATH, "BIST_Testlog.txt");
+        context = activity;
 
         this.keepTheDiffer = keepTheDiffer;
     }
@@ -43,7 +49,17 @@ public class SDTest extends TestClass {
 
     @Override
     public boolean classSetup() {
-        this.folder = new File(BISTApplication.EXT_SDCARD_PATH, "HEAVY_LOADING_TEST");
+        File[] fs = context.getExternalFilesDirs(null);
+        String extPath = null;
+        // Index 0: the internal storage, /sdcard/
+        // Index 1: the real external..., /storage/xxxx-xxxx
+        if (fs != null && fs.length >= 2) {
+            extPath = fs[1].getPath();
+            Log.d("feong",extPath);
+        }
+        
+        EXT_SDCARD_PATH = extPath;
+        this.folder = new File(EXT_SDCARD_PATH, "HEAVY_LOADING_TEST");
         if (!folder.exists()) {
             folder.mkdirs();
         }

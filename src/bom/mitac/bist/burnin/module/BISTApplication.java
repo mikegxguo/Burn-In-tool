@@ -43,8 +43,8 @@ public class BISTApplication extends Application {
 //    public static final String EXT_SDCARD_PATH = File.separator + "mnt" + File.separator + "ext_sdcard"
 //            + File.separator + "BIST";
 //    public static final String EXT_SDCARD_PATH = File.separator + "storage/E50B-0AF9"
-     public static final String EXT_SDCARD_PATH = File.separator + "storage/30DF-0E81"
-            + File.separator + "BIST";
+//     public static final String EXT_SDCARD_PATH = File.separator + "storage/30DF-0E81"
+//            + File.separator + "BIST";
     public static final String EXT_USB_PATH = File.separator + "mnt" + File.separator + "usb1_storage"
             + File.separator + "BIST";
     public static final String LOG_NAME = "BurnIn.txt";
