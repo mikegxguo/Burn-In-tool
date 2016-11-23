@@ -42,6 +42,9 @@ public class MainActivity extends Activity {
 		saveLog("onCreate");
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
+        if (RequestPermissionsActivity.startPermissionActivity(this)) {
+            finish();
+        }
 
 		setContentView(R.layout.activity_main);
 		viewFlipper = (ViewFlipper) findViewById(R.id.vf_config_test);

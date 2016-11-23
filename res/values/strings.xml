@@ -27,5 +27,6 @@
     <string name="Scan">Scan</string>
     <string name="TestInfo">Test Info</string>
     <string name="Stop">Stop</string>
+    <string name="error_info">Error to get the permission</string>
     
 </resources>
