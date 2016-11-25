@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="bom.mitac.bist.burnin"
           android:versionCode="17"
-          android:versionName="3.0.17">
-          <!--android:sharedUserId="android.uid.system"-->
+          android:versionName="3.0.17"
+          android:sharedUserId="android.uid.system">
          
 
      <uses-sdk android:minSdkVersion="14"  android:targetSdkVersion="23" />
