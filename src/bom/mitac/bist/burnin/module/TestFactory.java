@@ -85,7 +85,7 @@ public class TestFactory {
                 fis = new FileInputStream(configFile);
                 InputStreamReader isr = new InputStreamReader(fis);
                 BufferedReader d = new BufferedReader(isr);
-                configs = new ArrayList<String>(50);
+                configs = new ArrayList<String>(200);
                 for (String temp = d.readLine(); temp != null; temp = d.readLine()) {
                     if (temp.startsWith("//") || temp.isEmpty())
                         continue;
